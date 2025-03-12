@@ -4,7 +4,7 @@ html {
 
 body {
     background-color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     margin: 0;
     height: 100vh;
@@ -52,6 +52,7 @@ body::before {
 .title {
     display: flex;
     flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif !important;
     align-items: center;
     text-align: center;
     font-weight: bold;
@@ -59,9 +60,13 @@ body::before {
 }
 
 button {
+    position: relative;
     margin-top: 20px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     background-color: #ffffff;
+    border-radius: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-weight: bold;
     border: none;
     color: rgb(0, 0, 0);
     cursor: pointer;
@@ -69,11 +74,31 @@ button {
     height: 50px;
     display: inline-block;
     text-align: center;
-    line-height: 40px;
+    line-height: 50px;
+    overflow: hidden;
+    transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
 }
 
-button:hover {
-    background-color: #5b5b5b;
+button:active {
+    transform: translateY(4px);
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3); 
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; 
+    background: rgba(0, 0, 0, 0.15); 
+    transition: height 0.1s ease-in-out, background 0.1s ease-in-out;
+    border-radius: 0 0 15px 15px;
+}
+
+button:hover::after {
+    height: 4px; 
+    background: rgba(0, 0, 0, 0.25); 
 }
 
 .rights {
